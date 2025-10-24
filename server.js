@@ -11,6 +11,9 @@ import authRoutes from './routes/authRoutes.js';
 import userRoutes from './routes/userRoutes.js';
 import rolesRoutes from './routes/rolesRoutes.js';
 import permissionsRoutes from './routes/permissionsRoutes.js';
+import projectsRoutes from './routes/projectsRoutes.js';
+import subscriptionsRoutes from './routes/subscriptionsRoutes.js';
+
 
 // Load env
 dotenv.config();
@@ -31,8 +34,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/roles', rolesRoutes);
 app.use('/api/permissions', permissionsRoutes);
-
-// Error handler (simple)
+app.use('/api/projects', projectsRoutes);
+app.use('/api/subscriptions', subscriptionsRoutes);
 app.use((err, req, res, next) => {
   console.error(err.stack);
   const status = err.status || 500;
